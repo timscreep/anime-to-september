@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Принцесса Мононоке",
+    "year": 1997,
+    "episodes": null,
+    "image": "images/mononoke.png"
+  },
+  {
+    "title": "Мастера меча Онлайн",
+    "year": 2012,
+    "episodes": 96,
+    "image": "images/swordartonline.png"
+  },
+  {
+    "title": "Моб Психо 100",
+    "year": 2016,
+    "episodes": 37,
+    "image": "images/mob.png"
+  }
+]
