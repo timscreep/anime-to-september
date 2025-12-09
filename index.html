@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --rosewater: #f5e0dc;
+        --flamingo: #f2cdcd;
+        --pink: #f5c2e7;
+        --mauve: #cba6f7;
+        --red: #f38ba8;
+        --maroon: #eba0ac;
+        --peach: #fab387;
+        --yellow: #f9e2af;
+        --green: #a6e3a1;
+        --teal: #94e2d5;
+        --sky: #89dceb;
+        --sapphire: #74c7ec;
+        --blue: #89b4fa;
+        --lavender: #b4befe;
+        --text: #cdd6f4;
+        --subtext1: #bac2de;
+        --subtext0: #a6adc8;
+        --overlay2: #9399b2;
+        --overlay1: #7f849c;
+        --overlay0: #6c7086;
+        --surface2: #585b70;
+        --surface1: #45475a;
+        --surface0: #313244;
+        --base: #1e1e2e;
+        --mantle: #181825;
+        --crust: #11111b;
+      }
+    </style>
+</head>
+<body class="bg-[var(--base)] text-[var(--text)]">
+
+<header class="p-6 bg-[var(--mantle)] shadow-lg">
+  <h1 class="text-3xl font-bold text-center">Anime Library</h1>
+</header>
+
+<main id="anime-container" class="max-w-6xl mx-auto p-6 grid sm:grid-cols-2 md:grid-cols-3 gap-8"></main>
+
+<script>
+// Загружаем JSON
+fetch('anime.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('anime-container');
+
+    data.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'bg-[var(--surface0)] rounded-xl overflow-hidden shadow-lg hover:scale-[1.02] transition';
+
+      card.innerHTML = `
+        <img src="${item.image}" class="w-full h-64 object-cover" alt="${item.title}">
+        <div class="p-4">
+          <h2 class="text-xl font-semibold">${item.title}</h2>
+          <p class="text-[var(--subtext1)]">Год: ${item.year}</p>
+          <p class="text-[var(--subtext1)]">${item.episodes ? `Серий: ${item.episodes}` : 'Фильм'}</p>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  });
+</script>
+
+</body>
+</html>
